@@ -50,17 +50,18 @@ WORKDIR /home/wine-user
 RUN WINEARCH=win32 wine wineboot
 
 # wintricks
-RUN winetricks -q msls31
-RUN winetricks -q ole32
-RUN winetricks -q riched20
-RUN winetricks -q riched30
-RUN winetricks -q win7
+# TODO why does this use infinite memory?
+#RUN winetricks -q msls31
+#RUN winetricks -q ole32
+#RUN winetricks -q riched20
+#RUN winetricks -q riched30
+#RUN winetricks -q win7
 
-#RUN winetricks msls31
-#RUN winetricks ole32
-#RUN winetricks riched20
-#RUN winetricks riched30
-#RUN winetricks win7
+RUN winetricks msls31
+RUN winetricks ole32
+RUN winetricks riched20
+RUN winetricks riched30
+RUN winetricks win7
  
 USER root
 WORKDIR /
