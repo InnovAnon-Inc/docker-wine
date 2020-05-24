@@ -1,6 +1,7 @@
-version: '3'
+version: '3.3'
 services:
   wine:
+    #init: true
     privileged: true
     build: .
     #build:
@@ -17,6 +18,8 @@ services:
     environment:
       - DISPLAY=${DISPLAY}
       - XAUTHORITY
+    image: innovanon/docker-wine:latest
+    container_name: innovanon/docker-wine
 
 volumes:
   winevol:
