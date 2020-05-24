@@ -57,12 +57,6 @@ RUN WINEARCH=win32 wine wineboot
 #RUN winetricks -q riched30
 #RUN winetricks -q win7
 
-RUN winetricks msls31
-RUN winetricks ole32
-RUN winetricks riched20
-RUN winetricks riched30
-RUN winetricks win7
- 
 USER root
 WORKDIR /
 # TODO uncomment
