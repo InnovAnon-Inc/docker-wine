@@ -2,25 +2,21 @@ version: '3'
 services:
   wine:
     privileged: true
-    build:
-      context: .
+    build: .
+    #build:
+    #  context: .
     hostname: wine
     volumes:
       - winevol:/home/zandronum/wine/:rw
       - /tmp/.X11-unix:/tmp/.X11-unix:rw
       - /etc/localtime:/etc/localtime:rw
+      - $XAUTHORITY:$XAUTHORITY
     devices:
-      - "/dev/snd/controlC0:/dev/snd"
-      - "/dev/snd/hwC0D0:/dev/snd/hwC0D0"
-      - "/dev/snd/pcmC0D0c:/dev/snd/pcmC0D0c"
-      - "/dev/snd/pcmC0D0p:/dev/snd/pcmC0D0p"
-      - "/dev/snd/pcmC0D2c:/dev/snd/pcmC0D2c"
-      - "/dev/snd/pcmC0D2p:/dev/snd/pcmC0D2p"
-      - "/dev/snd/seq:/dev/snd/seq"
-      - "/dev/snd/timer:/dev/snd/timer"
+      - "/dev/snd"
     #network_mode: "host"
     environment:
       - DISPLAY=${DISPLAY}
+      - XAUTHORITY
 
 volumes:
   winevol:
