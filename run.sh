@@ -8,7 +8,7 @@ curl https://raw.githubusercontent.com/InnovAnon-Inc/repo/master/get-docker.sh |
 
 trap 'docker-compose down' 0
 
-xhost +local:"$USER"
+xhost +local:"$USER" || :
 sudo             -- \
 nice -n +20      -- \
 sudo -u "$USER" -- \
